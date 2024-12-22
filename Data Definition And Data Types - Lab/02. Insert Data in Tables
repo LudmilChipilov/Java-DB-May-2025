@@ -1,0 +1,4 @@
+INSERT INTO employees VALUES
+(5, "Ludmil", "Chipilov"),
+(6, "Ivan", "Ivanov"),
+(7, "Georgi", "Ivanov");
