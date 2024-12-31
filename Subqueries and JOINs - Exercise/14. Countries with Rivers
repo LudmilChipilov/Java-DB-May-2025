@@ -1,0 +1,11 @@
+SELECT c.country_name, r.river_name 
+FROM continents AS con 
+JOIN countries AS c 
+ON con.continent_code = c.continent_code 
+LEFT JOIN countries_rivers AS cr 
+ON c.country_code = cr.country_code
+LEFT JOIN rivers AS r 
+ON cr.river_id = r.id
+WHERE con.continent_code = "AF"
+ORDER BY c.country_name
+LIMIT 5;
