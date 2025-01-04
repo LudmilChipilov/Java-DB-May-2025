@@ -1,0 +1,16 @@
+CREATE FUNCTION udf_total_medals_count_by_country (name VARCHAR(40))
+RETURNS INT
+DETERMINISTIC
+BEGIN
+DECLARE count INT;
+          RETURN (
+                  SELECT COUNT(*) 
+                  FROM countries AS c 
+                  JOIN athletes AS a
+                  ON c.id = a.country_id
+                  JOIN `disciplines_athletes_medals` AS dam 
+                  ON a.id = dam.athlete_id
+                  WHERE c.name = name
+                 );
+
+END
