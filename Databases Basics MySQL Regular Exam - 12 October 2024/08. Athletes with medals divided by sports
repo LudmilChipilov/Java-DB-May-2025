@@ -1,0 +1,19 @@
+SELECT
+    a.id,
+    a.first_name,
+    a.last_name,
+    COUNT(dam.athlete_id) as medals_count,
+    s.name AS sport
+
+FROM athletes AS a
+         JOIN disciplines_athletes_medals AS dam 
+		 ON a.id = dam.athlete_id
+         JOIN disciplines AS d
+         ON dam.discipline_id = d.id
+         JOIN sports AS s 
+         ON s.id = d.sport_id
+         JOIN medals AS m ON 
+         dam.medal_id = m.id
+GROUP BY a.id, s.name, a.first_name
+ORDER BY medals_count DESC, a.first_name
+LIMIT 10;
