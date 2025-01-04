@@ -1,0 +1,3 @@
+UPDATE offerings
+SET name = UPPER(name)
+WHERE name LIKE "%Pizza%";
