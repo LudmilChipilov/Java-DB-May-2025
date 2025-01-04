@@ -1,0 +1,10 @@
+SELECT off.id, off.name 
+FROM offerings AS off 
+JOIN orders_offerings AS oo
+ON off.id = oo.offering_id
+JOIN orders AS ord
+ON oo.order_id = ord.id 
+JOIN customers AS c 
+ON ord.customer_id = c.id 
+WHERE off.vegan = 0 AND CONCAT(c.first_name, " ", c.last_name) = "Sofia Sanchez" 
+ORDER BY off.id;
