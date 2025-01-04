@@ -1,0 +1,12 @@
+SELECT DISTINCT res.id, res.name 
+FROM restaurants AS res 
+JOIN offerings AS off 
+ON res.id = off.restaurant_id
+JOIN orders_offerings AS or_off
+ON off.id = or_off.offering_id
+JOIN orders AS ord 
+ON or_off.order_id = ord.id
+JOIN customers AS cu 
+ON ord.customer_id = cu.id
+WHERE cu.regular = 1 AND off.vegan = 1 AND ord.priority = "HIGH" 
+ORDER BY res.id;
