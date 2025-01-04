@@ -1,0 +1,14 @@
+CREATE FUNCTION udf_get_offerings_average_price_per_restaurant(restaurant_name VARCHAR(40))
+RETURNS DECIMAL(12, 2)
+DETERMINISTIC
+BEGIN
+DECLARE av_price DECIMAL;
+          RETURN (
+                  SELECT ROUND(AVG(price), 2) 
+                  FROM offerings AS o
+                  JOIN restaurants AS r
+                  ON o.restaurant_id = r.id
+                  WHERE r.name = restaurant_name
+                 );
+
+END
