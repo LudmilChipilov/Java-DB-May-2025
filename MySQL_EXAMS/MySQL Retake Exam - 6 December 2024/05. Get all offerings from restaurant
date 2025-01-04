@@ -1,0 +1,5 @@
+SELECT o.name, o.price 
+FROM restaurants AS r
+JOIN offerings AS o 
+ON r.id = o.restaurant_id
+WHERE r.name = "Burger Haven";
