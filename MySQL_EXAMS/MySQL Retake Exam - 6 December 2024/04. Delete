@@ -1,0 +1,5 @@
+DELETE r
+FROM restaurants AS r
+WHERE name LIKE '%fast%'
+   OR type LIKE '%fast%';
+SET FOREIGN_KEY_CHECKS = 0;
