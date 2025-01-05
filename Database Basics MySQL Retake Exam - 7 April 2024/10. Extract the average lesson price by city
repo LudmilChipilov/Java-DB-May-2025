@@ -1,0 +1,14 @@
+CREATE FUNCTION udf_average_lesson_price_by_city (name VARCHAR(40))
+RETURNS DECIMAL(9, 2)
+DETERMINISTIC
+BEGIN
+DECLARE average_lesson_price DECIMAL;
+          RETURN ROUND((
+                  SELECT AVG(ds.average_lesson_price) 
+                  FROM cities AS c 
+                  JOIN driving_schools AS ds 
+                  ON c.id = ds.city_id 
+                  WHERE c.name = name
+                 ), 2);
+
+END
