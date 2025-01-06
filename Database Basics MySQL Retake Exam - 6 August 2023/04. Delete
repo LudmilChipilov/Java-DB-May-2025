@@ -1,0 +1,4 @@
+DELETE pt
+FROM property_transactions AS pt
+WHERE pt.is_successful = 0;
+SET FOREIGN_KEY_CHECKS = 0;
