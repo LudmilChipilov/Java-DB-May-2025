@@ -1,0 +1,4 @@
+DELETE f
+FROM flights AS f
+WHERE f.id IN (99, 100, 97, 98, 77);
+SET FOREIGN_KEY_CHECKS = 0;
