@@ -1,0 +1,14 @@
+CREATE FUNCTION udf_count_flights_from_country(country_input VARCHAR(50))
+RETURNS INT
+DETERMINISTIC
+BEGIN
+DECLARE flights_count INT;
+SET flights_count := (
+                       SELECT COUNT(f.destination_country)
+                       FROM flights AS f 
+                       JOIN countries AS c 
+                       ON f.departure_country = c.id
+                       WHERE c.name = country_input
+                      );
+RETURN flights_count;
+END
