@@ -1,0 +1,7 @@
+SELECT mao.id, m.title, mao.runtime, mao.budget, mao.release_date
+FROM movies_additional_info AS mao
+JOIN movies AS m 
+ON mao.id = m.movie_info_id
+WHERE YEAR(release_date) >= 1996 AND YEAR(release_date) <= 1999
+ORDER BY mao.runtime, mao.id
+LIMIT 20;
