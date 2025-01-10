@@ -1,0 +1,18 @@
+SELECT 
+m.title, 
+CASE 
+   WHEN mao.rating <= 4 THEN "poor"
+   WHEN mao.rating > 4 AND mao.rating <= 7 THEN "good"
+   ELSE "excellent"
+END
+AS rating, 
+CASE 
+   WHEN mao.has_subtitles = 1 THEN "english"
+   ELSE "-"
+END 
+AS subtitles,
+mao.budget
+FROM movies AS m 
+JOIN movies_additional_info AS mao 
+ON m.movie_info_id = mao.id 
+ORDER BY mao.budget DESC;
