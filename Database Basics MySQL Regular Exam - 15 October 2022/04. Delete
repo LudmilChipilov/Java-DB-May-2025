@@ -1,0 +1,6 @@
+DELETE w
+FROM waiters AS w
+LEFT JOIN orders AS o 
+ON w.id = waiter_id
+WHERE o.waiter_id IS NULL;
+SET FOREIGN_KEY_CHECKS = 0;
