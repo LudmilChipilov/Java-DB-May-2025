@@ -1,0 +1,6 @@
+DELETE c
+FROM countries AS c
+LEFT JOIN movies AS m 
+ON c.id = m.country_id
+WHERE m.movie_info_id IS NULL;
+SET FOREIGN_KEY_CHECKS = 0;
