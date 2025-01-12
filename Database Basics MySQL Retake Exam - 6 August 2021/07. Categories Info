@@ -1,0 +1,9 @@
+SELECT c.name, COUNT(gm.game_id) AS games_count, ROUND(AVG(g.budget), 2) AS avg_budget, MAX(g.rating) AS max_rating
+FROM categories AS c
+JOIN games_categories AS gm
+ON c.id = gm.category_id
+JOIN games AS g 
+ON gm.game_id = g.id
+GROUP BY c.name
+HAVING max_rating >= 9.5
+ORDER BY games_count DESC, c.name;
