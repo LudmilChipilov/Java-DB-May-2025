@@ -1,0 +1,21 @@
+SELECT a.name, 
+CASE
+    WHEN HOUR(c.start) >= 6 AND HOUR(c.start) <= 20 THEN "Day"
+    ELSE "Night"
+END 
+AS day_time,
+c.bill,
+cl.full_name,
+ca.make,
+ca.model,
+cat.name AS category_name
+FROM addresses AS a
+JOIN courses AS c 
+ON a.id = c.from_address_id
+JOIN cars AS ca
+ON c.car_id = ca.id
+JOIN clients As cl 
+ON c.client_id = cl.id
+JOIN categories AS cat 
+ON ca.category_id = cat.id
+ORDER BY c.id;
