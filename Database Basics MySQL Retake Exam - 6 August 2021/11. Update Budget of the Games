@@ -14,5 +14,5 @@ BEGIN
       SET release_date = DATE_ADD(release_date, INTERVAL 1 YEAR)
       WHERE gc.category_id IS NULL
       AND g.rating > min_game_rating
-	    AND g.release_date IS NOT NULL;
+      AND g.release_date IS NOT NULL;
 END
