@@ -1,0 +1,14 @@
+CREATE FUNCTION udf_users_photos_count(username VARCHAR(30)) 
+RETURNS INT
+DETERMINISTIC
+BEGIN
+DECLARE photoes_count INT;
+SET photoes_count := (
+					  SELECT COUNT(up.photo_id)
+                      FROM users_photos AS up
+                      JOIN users AS u
+                      ON up.user_id = u.id
+                      WHERE u.username = username
+                     );
+RETURN photoes_count;
+END
