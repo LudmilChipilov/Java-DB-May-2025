@@ -1,0 +1,7 @@
+SELECT ph.id, ph.date AS date_and_time, ph.description, COUNT(ph.id) AS commentsCount
+FROM photos AS ph
+JOIN comments AS c
+ON ph.id = c.photo_id
+GROUP BY ph.id, ph.date
+ORDER BY commentsCount DESC, ph.id
+LIMIT 5;
