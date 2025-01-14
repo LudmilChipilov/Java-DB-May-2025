@@ -1,0 +1,4 @@
+DELETE a
+FROM addresses AS a
+WHERE id % 3 = 0;
+SET FOREIGN_KEY_CHECKS = 0;
