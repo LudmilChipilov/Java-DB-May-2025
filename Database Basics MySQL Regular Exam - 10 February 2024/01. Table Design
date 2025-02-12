@@ -58,7 +58,7 @@ preserve_id INT NOT NULL,
 CONSTRAINT fk_countries_countries_preserves
 FOREIGN KEY(country_id)
 REFERENCES countries(id),
-CONSTRAINT fk__preserves_countries_preserves
+CONSTRAINT fk_preserves_countries_preserves
 FOREIGN KEY(preserve_id)
 REFERENCES preserves(id)
 
